@@ -47,7 +47,6 @@ function deviner() {
         document.getElementById('message').innerHTML = 'Le prix est plus bas. Essayez encore!';
         tempsRestant -= 10;
     }
-    actualiserChrono();
 }
 
 // enchainement de niveau
@@ -101,5 +100,3 @@ function afficherBoutonRecommencer() {
 function cacherBoutonRecommencer() {
     document.getElementById('boutonRecommencer').classList.add('hidden');
 }
-
-actualiserChrono();
