@@ -5,7 +5,7 @@ let tempsRestant = calculerTempsRestant();
 let chronoTimeout;
 
 // Charger les produits depuis le fichier JSON
-fetch('objets.json')
+fetch('https://raw.githubusercontent.com/BestBuyAPIs/open-data-set/master/products.json')
     .then(response => response.json())
     .then(data => {
         produits = data;
@@ -23,7 +23,7 @@ function choisirProduitAleatoire() {
 
 // interface dynamique
 function actualiserInterface() {
-    document.getElementById('nomProduit').innerHTML = `Produit : ${produitCourant.nom}`;
+    document.getElementById('nomProduit').innerHTML = `Produit : ${produitCourant.name}`;
     document.getElementById('imageProduit').src = produitCourant.image;
     document.getElementById('niveau').innerHTML = niveau;
 }
@@ -40,11 +40,11 @@ function deviner() {
         document.getElementById('message').innerHTML = 'Veuillez saisir un nombre.';
         return;
     }
-    if (guess == produitCourant.prix) {
-        document.getElementById('message').innerHTML = `Félicitations! Vous avez deviné le prix exact du ${produitCourant.nom}!`;
+    if (guess == produitCourant.price) {
+        document.getElementById('message').innerHTML = `Félicitations! Vous avez deviné le prix exact du ${produitCourant.name}!`;
         clearTimeout(chronoTimeout);
         passerAuNiveauSuivant();
-    } else if (guess < produitCourant.prix) {
+    } else if (guess < produitCourant.price) {
         document.getElementById('message').innerHTML = `Le prix est plus élevé. Essayez encore!`;
         tempsRestant -= 10;
     } else {
