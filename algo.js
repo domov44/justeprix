@@ -36,18 +36,23 @@ function calculerTempsRestant() {
 function deviner() {
     const guess = document.getElementById('guessInput').value;
 
+    if (guess === '') {
+        document.getElementById('message').innerHTML = 'Veuillez saisir un nombre.';
+        return;
+    }
     if (guess == produitCourant.prix) {
         document.getElementById('message').innerHTML = `Félicitations! Vous avez deviné le prix exact du ${produitCourant.nom}!`;
         clearTimeout(chronoTimeout);
         passerAuNiveauSuivant();
-    } else if (guess < produitCourant.prix || guess === '') {
-        document.getElementById('message').innerHTML = 'Le prix est plus élevé. Essayez encore!';
+    } else if (guess < produitCourant.prix) {
+        document.getElementById('message').innerHTML = `Le prix est plus élevé. Essayez encore!`;
         tempsRestant -= 10;
     } else {
-        document.getElementById('message').innerHTML = 'Le prix est plus bas. Essayez encore!';
+        document.getElementById('message').innerHTML = `Le prix est plus bas. Essayez encore!`;
         tempsRestant -= 10;
     }
 }
+
 
 // enchainement de niveau
 
