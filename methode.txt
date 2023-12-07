@@ -1,0 +1,7 @@
+1. le but est de trouver le prix EXACT d'un produit, 1 produit = 1 level, 
+2. le produit est choisis aléatoirement parmis une DB, en affichant sa photo et son nom (API amazon peut etre ???)
+3. le prix exact doit etre rentré dans un input text, une indication s'affiche selon si le prix est plus haut ou plus bas que le prix entrez
+4. De base un chrono est initié à 3 minutes, et le temps s'écoule
+5. A chaque level passé le chno gagne 45 secondes
+6. A chaque tentative de devinette du prix raté le chrono perd 10 secondes
+7. Le joueur perd si le chrono atteint 0 secondes
